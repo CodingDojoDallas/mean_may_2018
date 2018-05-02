@@ -1,42 +1,21 @@
 function Ninja(name) {
   this.name = name;
-  var health = 100;
+  this.health = 100;
   var speed = 3;
   var strength = 3;
-
-  ninja.sayName = function(){
+  this.sayName = function(){
     console.log("My ninja is " + this.name);
-  } 
-return Ninja;
   };
+  this.showStats = function(){
+    console.log("Name: " + this.name + ", Health: " + this.health + ", Speed: " + speed + ", Strength: " + strength);
+  };
+  this.drinkSake = function(){
+    console.log("Health: " + (this.health + 10));
+  };
+  }
 var ninja1 = new Ninja("Hyabusa");
 ninja1.sayName();
-
-
-
-
-
-
-
-
-
-
-  // 'Getter' functions help us read private variables
-  this.readOdometer = function () {
-    return odometer;
-  }
-
-  // 'Setter' functions help us update private variables
-  this.drive = function (distance) {
-    updateOdometer(distance);
-    // return this will allow us to chain methods
-    return this;
-  }
-}
-var myCarInstance = new Car("Chevy", "Camaro");
-// by returning this, we can chain drive()
-myCarInstance.drive(50).drive(90);
-// private variable is undefined
-console.log(myCarInstance.odometer);
-// but we can read it with our getter function
-console.log(myCarInstance.readOdometer());
+var ninja1 = new Ninja("Hyabusa");
+ninja1.showStats();
+var ninja1 = new Ninja("Hyabusa");
+ninja1.drinkSake();
