@@ -15,26 +15,22 @@ function Ninja(name) {
     console.log("Health: " + (this.health));
     console.log("------------------");
   };
+  this.punch = function(blueNinja){
+    console.log(blueNinja.name + " was punched by " + this.name + " and lost 5 health!");
+    punch = -5;
+    this.health += punch;
+    console.log(blueNinja.name + " now has " + this.health + " health.");
+    console.log("------------------");
+  };
+  this.kick = function(redNinja){
+    console.log(redNinja.name + " was kicked by " + this.name + " and lost 15 health!");
+    kick = -15;
+    this.health += kick;
+    console.log(redNinja.name + " now has " + this.health + " health.");
+    console.log("------------------");
+  };
 }
-  Ninja.prototype.punch = function(){
-  console.log(blueNinja.name + " has " + this.health + " health.");
-  console.log(blueNinja.name + " was punched by " + redNinja.name + " and lost 5 health!");
-  punched = -5;
-  this.health += punched;
-  console.log(blueNinja.name + " now has " + this.health + " health.");
-  console.log("------------------");
 
-};
-
-Ninja.prototype.kick = function(){
-  console.log(redNinja.name + " has " + this.health + " health.");
-  console.log(redNinja.name + " was kicked by " + blueNinja.name + " and lost 15 health!");
-  kicked = -15;
-  this.health += kicked;
-  console.log(redNinja.name + " now has " + this.health + " health.");
-  console.log("------------------");
-
-};
 var ninja1 = new Ninja("Hyabusa");
 ninja1.sayName();
 ninja1.showStats();
@@ -44,6 +40,3 @@ var blueNinja = new Ninja("Goemon");
 var redNinja = new Ninja("Bill Gates");
 redNinja.punch(blueNinja);
 blueNinja.kick(redNinja);
-
-
-
