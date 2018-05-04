@@ -1,5 +1,11 @@
 #wrapper {
     width: 970px;
     margin: 0px auto;
+    padding: 20px;
 }
 
+#board {
+    border: 1px solid black;
+    width: 800px;
+    margin: 20px;
+}

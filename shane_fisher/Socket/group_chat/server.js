@@ -10,6 +10,8 @@ var session = require('express-session');
 // io module
 const server = app.listen(8000);
 const io = require('socket.io')(server);
+// message dictionary
+var messages = [];
 // use body-parser!
 app.use(bodyParser.urlencoded({ extended: true }));
 // use module session code
@@ -26,14 +28,26 @@ app.set('views', path.join(__dirname, './views'));
 app.set('view engine', 'ejs');
 // root route to render the index.ejs view
 app.get('/', function (req, res) {
-    if (!req.session.id) {
-        var person = prompt("Please enter your name")
+    if (req.session.name == null) {
+        var name = "Anonymous";
+    } else {
+        var name = req.session.name;
     }
-    res.render("index", person);
+    
+    res.render("index", { name: name});
+})
+
+app.post('/', function (req, res) {
+    req.session.name = req.body.name;
+    res.redirect("/");
 })
 
 io.on('connection', function (socket) { //2
 
-    socket.emit('greeting', { msg: 'Greetings, from server Node, brought to you by Sockets! -Server' }); //3
+    socket.emit('greeting', { msg: 'Greetings, from server Node, brought to you by Sockets! -Server', messages: messages });
+    socket.on('posting_form', function(message) {
+        messages.push(message);
+        io.emit('message', messages[messages.length -1]);
+    });
 
 });
