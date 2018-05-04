@@ -1,0 +1,22 @@
+.wrapper {
+    width: 500px;
+    margin: 0 auto;
+    background-color: rgb(229, 205, 231);
+    padding-top: 30px;
+    padding-bottom: 20px;
+    border: 2px solid rgb(0, 0, 0);
+}
+
+h1, p {
+    text-align: center;
+}
+
+p {
+    font-size: 18px;
+}
+
+a {
+    text-align: center;
+    display: block;
+    font-size: 20px;
+}

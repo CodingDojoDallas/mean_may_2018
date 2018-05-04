@@ -1,0 +1,12 @@
+.wrapper {
+    width: 500px;
+    margin: 0 auto;
+    background-color: rgb(189, 246, 241);
+    padding-top: 30px;
+    padding-bottom: 20px;
+    border: 2px solid rgb(0, 0, 0);
+}
+
+form {
+    margin-left: 136px;
+}
