@@ -1,0 +1,16 @@
+#wrapper {
+    width: 970px;
+    margin: 0px auto;
+}
+
+#emit {
+    margin: 0px auto;
+    background-color: green;
+    width: 500px;
+    display: none;
+    border: 1px solid black;
+    color: white;
+    font-size: large;
+}
+
+
