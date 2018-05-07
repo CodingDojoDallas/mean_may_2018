@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Survey Form</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+            crossorigin="anonymous">
+        <link rel="stylesheet" href="css/styles.css" media="screen" title="no title" charset="utf-8">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+
+                var socket = io(); //1
+
+                socket.on('greeting', (data) => { //4
+                    console.log(data.msg);
+                });
+
+                $('#form_1').submit(function(){ //When this form is submitted, send this message to the server
+                    socket.emit('epic_button', {msg: 'User pushed the Epic Button'});
+                    return false;
+                });
+
+                socket.on('updated_message', (data) => {
+                    console.log(data.msg);
+                    var count = document.getElementById('updated_message');
+                    while(count.hasChildNodes()){
+                        count.removeChild(count.firstChild);
+                    }
+                    count.innerHTML += data.msg;
+                });
+
+                $('#form_2').submit(function(){ //When the reset form is submitted, reset counter back to 0
+                    socket.emit('reset', {msg: 'User pushed the reset button'});
+                    return false;
+                });
+
+                socket.on('updated_count', (data) => {
+                    console.log(data.msg);
+                    var count = document.getElementById('updated_message');
+                    while (count.hasChildNodes()) {
+                        count.removeChild(count.firstChild);
+                    }
+                    count.innerHTML += data.msg;
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div id="message">
+            <h1 id="updated_message"></h1>
+        </div>
+        <div class="wrapper">
+            <h4>Push the button to update the count!</h4>
+            <form id="form_1" >
+                <input class="btn btn-outline-success" type="submit" value="Push the Epic Button">
+            </form>
+            <form id="form_2">
+                <input class="btn btn-outline-danger" type="submit" value="Reset the Count">
+            </form>
+        </div>
+    </body>
+</html>

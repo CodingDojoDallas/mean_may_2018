@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Counter</title>
+    </head>
+    <body>
+        <h1>The Counter is: <%= count %></h1>
+        <form action="/count" method="POST">
+            <input type="submit" value="Add One to Counter">
+        </form>
+        <form action="/double" method="post">
+            <input type="submit" value="Double!">
+        </form>
+        <form action="/delete" method="post">
+            <input type="submit" value="Reset!">
+        </form>
+    </body>
+</html>
