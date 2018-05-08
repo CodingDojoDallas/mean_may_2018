@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" href="css/styles.css">
         <title>Survey Form</title>
     </head>
     <body>
-        <form action="/quotes" method="POST">
-            <label for="name">Your Name: </label>
-            <input type="text" name="name" id="name">
+        <div>
+            <form action="/quotes" method="POST">
+                <label for="name">Your Name: </label>
+                <input type="text" name="name" id="name">
             
-            <label for="age">Your Quote: </label>
-            <input type="text" name="quote" id="quote">
+                <label for="age">Your Quote: </label>
+                <input type="text" name="quote" id="quote">
             
-            <input id="button1" type="submit" value="Add my Quote">
-        </form>
-        <form action="/quotes" method="GET">
-            <input id="button2" type="submit" value="Skip to Quotes">
-        </form>
+                <input id="button1" type="submit" value="Add my Quote">
+            </form>
+            <form action="/quotes" method="GET">
+                <input id="button2" type="submit" value="Skip to Quotes">
+            </form>
+        </div>
+        
         <% if(messages.registration) { %>
             <% for (var x of messages.registration) { %>
                 <h3><%= x %></h3>
