@@ -77,7 +77,7 @@ app.post('/quotes', (request, response) => {
                 //   happen inside of this callback for it to be synchronous 
                 // Make sure you handle the case when there is an error, as well as the case when there is no error
                 response.render('quotes', { quotes: quotes });
-            });
+            }).sort({"createdAt": -1});
         }
     });
 });
