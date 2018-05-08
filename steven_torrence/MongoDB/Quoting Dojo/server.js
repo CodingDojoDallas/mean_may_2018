@@ -27,8 +27,8 @@ app.use(session({
 // Setting up Mongoose
 mongoose.connect('mongodb://localhost/quotes');
 var QuoteSchema = new mongoose.Schema({
-    name: {type: String, required: true},
-    quote: {type: String, required: true}
+    name: {type: String, required: "You must enter a name!"},
+    quote: {type: String, required: "You must enter a quote!"}
 }, {timestamps: true});
 mongoose.model('Quote', QuoteSchema); // We are setting this Schema in our Models as 'User'
 var Quote = mongoose.model('Quote') // We are retrieving this Schema from our Models, named 'User'
