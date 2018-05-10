@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+    crossorigin="anonymous">
+
+  <title>Survey Form</title>
+
+
+
+
+
+
+</head>
+
+<body>
+  <!-- <input type="text" name="name"> -->
+  <!-- <input type="text" name="language"> -->
+  <!-- <input type="submit" id="submit" value="submit"> -->
+
+  <div class="container col-6">
+    <div id="info"></div>
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Your Name:</label>
+      <input type="text" name="name" class="form-control" id="exampleFormControlInput1" placeholder="Your Name">
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlSelect1">Dojo Location</label>
+      <select class="form-control" name="location" id="exampleFormControlSelect1">
+        <option>Dallas</option>
+        <option>San Jose</option>
+        <option>Seattle</option>
+        <option>LA</option>
+        <option>Chicago</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlSelect2">Favorite Language</label>
+      <select class="form-control" name="language" id="exampleFormControlSelect2">
+        <option>JavaScript</option>
+        <option>Python</option>
+        <option>Ruby</option>
+        <option>HTML</option>
+        <option>CSS</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">Comment (optional):</label>
+      <textarea class="form-control" name="comment" id="exampleFormControlTextarea1" rows="3"></textarea>
+      <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </div>
+  <!--close container-->
+
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+    crossorigin="anonymous"></script>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      var socket = io(); //1
+      $("#submit").click(function () {
+        var data = {
+          name: $("input[name=name]").val(),
+          location: $("select[name=location]").val(),
+          language: $("select[name=language]").val(),
+          comment: $("textarea[name=comment]").val()
+        }
+        socket.emit('send', data);
+      })
+      socket.on("stud", function (user) {
+        console.log(user);
+        $("#info").html("<p>You emitted the following information to the server: Name: " + user.name + ", Location: " + user.location + ", Language: " + user.language + ", Comment: " + user.comment + ".</p><br><p>Your lucky number emitted by the server is " + user.number + ".</p>")
+      });
+
+    })
+  </script>
+
+
+</body>
+
+</html>
