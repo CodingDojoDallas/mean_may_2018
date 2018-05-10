@@ -1,0 +1,19 @@
+{
+  "name": "authentication",
+  "version": "1.0.0",
+  "main": "app.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "dependencies": {
+    "bcrypt-as-promised": "^1.1.0",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "moment": "^2.22.1",
+    "mongoose": "^5.0.17",
+    "mongoose-unique-validator": "^2.0.1",
+    "path": "^0.12.7"
+  }
+}
