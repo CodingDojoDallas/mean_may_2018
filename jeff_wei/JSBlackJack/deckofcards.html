@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>BlackJack</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>        
+    <script type="text/javascript" src="blackjack.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <img src="images/b1fv.png">
+                <button class="btn btn-primary" id="deal">Deal</button>
+            </div>
+            <div class="col">
+                <button class="btn btn-primary" id="hit">Hit</button>
+            </div>
+            <div class="col">
+                <button class="btn btn-primary" id="stand">Stand</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h1>Dealer</h1>
+                <div id="dealer_hand">
+                    
+                </div>
+                <div id="dealer_score">
+                    0
+                </div>
+            </div>
+            <div class="col">
+                <h1>Player</h1>
+                <div id="player_hand">
+                    
+                </div>
+                <div id="player_score">
+                    0
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col" id="result">
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>

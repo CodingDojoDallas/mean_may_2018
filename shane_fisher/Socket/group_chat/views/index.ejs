@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Working</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
+    <script type="text/javascript">
+        
+        $(document).ready(function () {
+
+            var socket = io(); //1
+
+            socket.on('greeting', function (data) { //4
+                console.log(data.msg);
+                for (var i = 0; i < data.messages.length; i++) {
+                    $('#board').append("<p>" + data.messages[i] + "</p>");
+                }
+                
+             });
+            
+            $('#send').click(function () {
+                var msg = ("<%= name %>: " + $('input[name=message]').val() );
+                socket.emit('posting_form', msg);
+                $('#m1').val("");
+                return false;
+            });
+
+            socket.on('message', function(message) {
+                    $('#board').append("<p>" + message+ "</p>");
+                
+            })
+
+        })
+        
+        
+    </script>
+    
+</head>
+<body>
+<% if (name == "Anonymous") { %>
+    <div id="wrapper">
+        <div id="login">
+            <form action="/" method="post">
+                <label for="name">Enter your name:</label>
+                <input type="text" name="name">
+            </form>
+        </div>
+    </div>
+<% } else { %>
+    <h1>Conversation Board</h1>
+    <div id="board">
+
+    </div>
+    <div id="container">
+        <input id="m1" type="text" name="message">
+        <button id="send">Send</button>
+    </div>
+<% } %>
+
+</body>
+</html>

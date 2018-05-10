@@ -26,7 +26,10 @@ NOTE: If you don't get in at least one pull request daily, then *_ya ain't serio
 Angular Registration - https://scotch.io/tutorials/how-to-implement-a-custom-validator-directive-confirm-password-in-angular-2 <br>
 
 ## Videos
+API/Modularize - https://youtu.be/22ET8M39zgg <br>
 
 
 ## Demos:
+Default Express - https://youtu.be/cHFLqYK32ho <br>
+Sockets - https://youtu.be/zoXRJyWh0GI <br>
 

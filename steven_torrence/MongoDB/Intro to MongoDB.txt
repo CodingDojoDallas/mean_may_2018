@@ -1,0 +1,119 @@
+1. Create a database called 'my_first_db'
+
+use my_first_db
+
+
+2. Create students collection.
+
+db.createCollection("students")
+
+
+3. Each document you insert into this collection should have the following format: 
+({name: STRING, home_state: STRING, lucky_number: NUMBER, birthday: {month: NUMBER, day: NUMBER, year: NUMBER}})
+
+
+4. Create 5 students with the appropriate info.
+
+db.students.insert({name: "Steven", home_state: "Texas", lucky_number: 88, birthday: {month: "December", day: 5, year: 1988}})
+db.students.insert({name: "Mike", home_state: "Texas", lucky_number: 5, birthday: {month: "January", day: 12, year: 1989}})
+db.students.insert({name: "Robert", home_state: "Maine", lucky_number: 555, birthday: {month: "May", day: 5, year: 1965}})
+db.students.insert({name: "Chris", home_state: "Ohio", lucky_number: 1, birthday: {month: "November", day: 22, year: 1977}})
+db.students.insert({name: "Jill", home_state: "California", lucky_number: 123, birthday: {month: "August", day: 31, year: 1991}})
+
+
+5. Get all students.
+
+db.students.find({}).pretty()
+
+
+6. Retrieve all students who are from California (San Jose Dojo) or Washington (Seattle Dojo).
+
+db.students.find({ $or: [{home_state: "California"}, {home_state: "Washington"}]})
+
+
+7. Get all students whose lucky number is:
+
+	a) Greater than 3
+	db.students.find({lucky_number: {$gt: 3}})
+	
+	b) Less than or equal to 10
+	db.students.find({lucky_number: {$lte: 10}})
+
+	c) between 1 and 9 (inclusive)
+	db.students.find({ $and: [{lucky_number: {$gte: 1}}, {lucky_number: {lte: 9}}]})
+	
+
+8. Add a field to each student collection called 'interests' that is an ARRAY.  It should contain the following entries: 'coding', 'brunch', 'MongoDB'. Do this in ONE operation.
+
+db.students.update({name: "Steven"}, {$set: {interests: ['coding', 'brunch', 'MongoDB']}})
+db.students.update({name: "Mike"}, {$set: {interests: ['coding', 'brunch', 'MongoDB']}})
+db.students.update({name: "Robert"}, {$set: {interests: ['coding', 'brunch', 'MongoDB']}})
+db.students.update({name: "Chris"}, {$set: {interests: ['coding', 'brunch', 'MongoDB']}})
+db.students.update({name: "Jill"}, {$set: {interests: ['coding', 'brunch', 'MongoDB']}})
+
+
+9. Add some unique interests for each particular student into each of their interest arrays.
+
+db.students.update({name: "Steven"}, {$push:{interests: 'cooking'}})
+db.students.update({name: "Mike"}, {$push:{interests: 'eating'}})
+db.students.update({name: "Robert"}, {$push:{interests: 'dancing'}})
+db.students.update({name: "Chris"}, {$push:{interests: 'sleeping'}})
+db.students.update({name: "Jill"}, {$push:{interests: 'gaming'}}) 
+
+
+10. Add the interest 'taxes' into someone's interest array.
+
+db.students.update({name: "Mike"}, {$push:{interests: 'taxes'}})
+
+
+11. Remove the 'taxes' interest you just added.
+
+db.students.update({name: "Mike"}, {$pop:{interests: 1}})
+
+
+12. Remove all students who are from California (or Washington).
+
+db.students.remove({ $or: [{home_state: "California"}, {home_state: "Washington"}]})
+
+
+13. Remove a student by name.
+
+db.students.remove({name: "Mike"})
+
+
+14. Remove a student whose lucky number is greater than 5 (JUST ONE)
+
+db.students.remove({lucky_number: {$gt: 5}}, true)
+
+
+15. Add a field to each student collection called 'number_of_belts' and set it to 0.
+
+db.students.update({name: "Steven"}, {$set: {number_of_belts: 0}})
+db.students.update({name: "Mike"}, {$set: {number_of_belts: 0}})
+db.students.update({name: "Robert"}, {$set: {number_of_belts: 0}})
+db.students.update({name: "Chris"}, {$set: {number_of_belts: 0}})
+db.students.update({name: "Jill"}, {$set: {number_of_belts: 0}})
+
+
+16. Increment this field by 1 for all students in Washington (Seattle Dojo).
+
+db.students.update({home_state: "Washington"}, {$set: {number_of_belts: 1}})
+
+
+17. Rename the 'number_of_belts' field to 'belts_earned'
+
+db.students.update({$rename: {'number_of_belts': 'belts_earned'})
+
+
+18. Remove the 'lucky_number' field.
+
+db.students.update({name: 'Steven'}, { $unset: {'lucky_number':""}})
+db.students.update({name: 'Mike'}, { $unset: {'lucky_number':""}})
+db.students.update({name: 'Robert'}, { $unset: {'lucky_number':""}})
+db.students.update({name: 'Chris'}, { $unset: {'lucky_number':""}})
+db.students.update({name: 'Jill'}, { $unset: {'lucky_number':""}})
+
+
+19. Add a 'updated_on' field, and set the value as the current date.
+
+db.students.update({name: 'Steven'}, { $currentDate: {'created_on': {type: 'timestamp'}}})

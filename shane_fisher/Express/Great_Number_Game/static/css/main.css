@@ -1,0 +1,36 @@
+#wrapper {
+    width: 600px;
+    margin: 0px auto;
+}
+
+#wrapper * {
+    display: block;
+}
+h1, h3 {
+    text-align: center;
+    padding: 10px;
+}
+.box {
+    margin: 0 auto;
+    height: 100px;
+    width: 100px;
+    border: 1px solid black;
+    color: white;
+}
+.box p {
+    text-align: center;
+    margin-top: 10px;
+}
+.green {
+    
+    background-color: green;
+
+}
+
+.red {
+    background-color: red;
+}
+form input {
+    margin: 5px auto;
+    
+}

@@ -1,0 +1,94 @@
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    </script>
+
+    <style>
+button{
+    display:inline-block;
+}
+.button{
+    width: 400px;
+    height:190px;
+    margin:40px;
+    border:solid;
+    border-color:black;
+    display: inline-block;
+    text-align: center;
+    vertical-align:middle;
+}
+.questions{
+    margin: 50px;
+    border: 1px solid black;
+}
+.display{
+    display: inline;
+    font-weight: bold;
+}
+.hide{
+    display:none;
+}
+
+</style>
+
+</head>
+<body>
+    <h1>Trivia!!</h1>
+    <div class='questions'>
+    </div>
+    <div class='questions'>
+    </div>
+    <div class='questions'>
+    </div>
+    <div class='questions'>
+    </div>
+    <div class='questions'>
+    </div>
+    <div class='questions'>
+    </div>
+    <div class='questions'>
+    </div>
+    <div class='questions'>
+    </div>
+    <div class='questions'>
+    </div>
+    
+    <button class="me">Generate Question!</button>
+
+
+<script type="text/javascript">
+
+
+
+
+        // function click(){
+        //     $('.button').on('click', function(){ 
+        //                $(this).find('h1').toggle();
+        //                $(this).find('h2').toggle();
+        //                e.preventDefault();
+        //        });
+        // }
+
+        $.get("https://opentdb.com/api.php?amount=9&category=9&difficulty=medium&type=multiple", extractData)
+          
+        
+            function extractData(data) {
+            for(var i=0; i<data.results.length; i++){
+            var question = data.results[i].question;
+            var answer = data.results[i].correct_answer;
+            var incorrect = data.results[i].incorrect_answers;
+            var test = data.results[i].answers
+                $( '.me' ).click(function () {
+                    $('.questions').html(question);
+            });
+
+        }
+        console.log(data);
+    }
+
+
+</script>
+
+</body>
+</html>

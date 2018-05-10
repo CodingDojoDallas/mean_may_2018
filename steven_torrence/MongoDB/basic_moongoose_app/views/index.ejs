@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Survey Form</title>
+    </head>
+    <body>
+        <form action="/users" method="post">
+            <label for="name">Name: </label>
+            <input type="text" name="name" id="name">
+            
+            <label for="age">Age: </label>
+            <input type="text" name="age" id="age">
+            
+            <input type="submit" value="Submit">
+        </form>
+        <div>
+            
+            <% if (users) { %>
+                <% for(var x of users){%>
+                    <p><%= x.name %></p>
+                <% } %>
+            <% } %>
+        </div>
+    </body>
+</html>

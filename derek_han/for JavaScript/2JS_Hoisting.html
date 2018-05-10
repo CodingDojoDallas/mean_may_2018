@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JavaScript Hoisting</title>
+	<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+	<script>
+         $(document).ready(function(){
+		     $('button').click(function(){
+		     	$.get("https://api.github.com/users/derek", displayName)
+		     	function displayName(data) {
+		     		$('#derek').append('<p>'+ data.login +'</p>');
+		     		console.log(data.login);
+				}
+		      });
+		 });
+	</script>
+
+</head>
+<body>
+	<div id="derek">	
+		<p>info</p>
+		<button> Show me the derek!! </button>
+    </div>
+
+</body>
+</html>

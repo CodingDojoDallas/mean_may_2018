@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Working</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            var socket = io(); //1
+
+            socket.on('greeting', function (data) { //4
+                console.log(data.msg); //5
+            });
+
+            $('form').submit(function (data) {
+                socket.emit('posting_form', { name: $('input[name=name]').val(), location: $('select[name=location]').val(), language: $('select[name=language]').val(), comment: $('textarea[name=comment]').val() });
+                //socket.emit('message', "Input");
+                //$('#Input').val('');
+                return false;
+            });
+
+            socket.on('updated_message', function(sendback) {
+                console.log("Here is the sendback:", sendback);
+                $('#emit').html("<p> You emitted the following information to the server:</p>");
+                $('#emit').append("Name: " + sendback.name + "</br>");
+                $('#emit').append("Favorite Language: " + sendback.language + "</br>");
+                $('#emit').append("Dojo Location: " + sendback.location + "</br>");
+                $('#emit').append("Comment: " + sendback.comment + "</br>");
+                $('#emit').toggle();
+            });
+            socket.on('random_number', function (number) {
+                console.log("Here is the number:", number);
+                $('#emit').append("Your Lucky Number is: " + number + "</br>");
+            });
+        })
+    </script>
+    <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
+</head>
+<body>
+    <div id="wrapper">
+    <div id="emit">
+        
+    </div>
+    <form action="">
+        <label for="name">Your Name:</label>
+        <input type="text" name="name">
+        <label for="location">Dojo Location</label>
+        <select name="location" id="location">
+            <option value="Dallas">Dallas</option>
+            <option value="Austin">Austin</option>
+            <option value="Mars">Mars</option>
+            <option value="Knowhere">Knowhere</option>
+        </select>
+        <label for="language">Favorite Language</label>
+        <select name="language" id="language">
+            <option value="Javascript">Javascript</option>
+            <option value="Ruby">Ruby</option>
+            <option value="Cobalt">Cobalt</option>
+            <option value="Martian">Martian</option>
+        </select>
+        <label for="comment">Comment (optional):</label>
+        <textarea name="comment" id="comment" cols="30" rows="10"></textarea>
+        <button type="submit">Submit</button>
+    </form>
+    </div>
+
+</body>
+</html>

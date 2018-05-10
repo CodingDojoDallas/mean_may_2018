@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JavaScript Basic</title>
+	<script>
+		let students = [
+		    {name: 'Remy', cohort: 'Jan'},
+		    {name: 'Genevieve', cohort: 'March'},
+		    {name: 'Chuck', cohort: 'Jan'},
+		    {name: 'Osmund', cohort: 'June'},
+		    {name: 'Nikki', cohort: 'June'},
+		    {name: 'Boris', cohort: 'June'}
+		];
+
+
+		function printArr(arr){
+			for ( i = 0 ; i < arr.length ; i ++){
+				// console.log (i);
+				console.log('name :', arr[i]['name'], " , ", 'Cohort : ', arr[i]['cohort'] );
+		}
+		}
+
+		printArr(students);
+
+		let users = {
+		    employees: [
+		        {'first_name':  'Miguel', 'last_name' : 'Jones'},
+		        {'first_name' : 'Ernie', 'last_name' : 'Bertson'},
+		        {'first_name' : 'Nora', 'last_name' : 'Lu'},
+		        {'first_name' : 'Sally', 'last_name' : 'Barkyoumb'}
+		    ],
+		    managers: [
+		       {'first_name' : 'Lillian', 'last_name' : 'Chambers'},
+		       {'first_name' : 'Gordon', 'last_name' : 'Poe'}
+		    ]
+		 };
+
+		 function printObject(object){
+
+			
+			console.log((Object.keys(object)[0]).toUpperCase());
+
+			for (i = 0; i < object["employees"].length; i++){
+				var count = i+1;
+				var countCha = object["employees"][i]["first_name"].length + object["employees"][i]["last_name"].length;
+
+				console.log((count + " " + object["employees"][i]["first_name"] +', '+ object["employees"][i]["last_name"] +' - ' + countCha ).toUpperCase());
+			}
+			console.log((Object.keys(object)[1]).toUpperCase());
+
+			for (i = 0; i < object["managers"].length; i++){
+
+				var count = i+1;
+				var countCha = object["managers"][i]["first_name"].length + object["managers"][i]["last_name"].length;
+				var managers = count + " " + object["managers"][i].first_name+ ', '+ object["managers"][i].last_name+ " - "+ countCha;
+				var upManagers = managers.toUpperCase();
+				console.log (upManagers);
+			}
+		
+		}
+
+
+		printObject(users)
+
+
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>
