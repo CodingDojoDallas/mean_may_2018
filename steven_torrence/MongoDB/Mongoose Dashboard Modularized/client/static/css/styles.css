@@ -1,0 +1,44 @@
+div {
+    border: 2px solid blue;
+    width: 400px;
+    padding: 30px;
+    border-radius: 25px;
+    margin-left: 720px;
+    margin-top: 50px;
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 4px 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+/* input[type=submit] {
+    display: inline-block;
+    margin-top: 10px;
+} */
+
+h2 {
+    text-align: center;
+}
+
+p {
+    text-align: center;
+}
+
+.back {
+    margin-left: 925px;
+    margin-top: 25px;
+    display: block;
+}
+
+.add {
+    margin-left: 910px;
+    margin-top: 25px;
+    display: block;
+}
+
+#release {
+    margin-left: 132px;
+}
