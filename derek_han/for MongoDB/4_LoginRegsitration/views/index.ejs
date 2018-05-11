@@ -1,0 +1,74 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+
+</head>
+    <body>
+        <div id='wrapper'> 
+
+            <h1>Login and Registration</h1>
+
+           
+
+            <% JSON.stringify(messages) %>
+            <% if (messages.erroneous) { %>
+                <% for (var x of messages.erroneous) { %>
+                    <h3><%= x.messages %></h3>
+                    <h3><%= x %></h3>
+                <% } %>
+            <% } %>
+
+            <form id='form' action='/Register' method='POST'>
+                <table>
+                    <tr>
+                        <td><label>First Name:</label></td>
+                        <td><input type='text' name='first_name'></td>
+                    </tr>
+                    <tr>
+                        <td><label>Last Name:</label></td>
+                        <td><input type='text' name='last_name'></td>
+                    </tr>
+                    <tr>
+                        <td><label>Email:</label></td>
+                        <td><input type='text' name='email'></td>
+                    </tr>
+                    <tr>
+                        <td><label>Password:</label></td>
+                        <td><input type='password' name='password'></td>
+                    </tr>
+                    <tr>
+                        <td><label>Confirm Password:</label></td>
+                        <td><input type='password' name='confirm'></td>
+                    </tr>
+                    <tr>
+                        <td><label>Birthday:</label></td>
+                        <td><input type='date' name='bday'></td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" value='Register'></td>
+                    </tr>
+                </table>
+            </form>
+
+
+            <form id='form' action='/Login' method='POST'>
+                <table>
+                    <tr>
+                        <td><label>Email:</label></td>
+                        <td><input type='text' name='email'></td>
+                    </tr>
+                    <tr>
+                        <td><label>Password:</label></td>
+                        <td><input type='password' name='password'></td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" value='Register'></td>
+                    </tr>
+                </table>
+            </form>
+
+        </div>
+    </body>
+</html>
