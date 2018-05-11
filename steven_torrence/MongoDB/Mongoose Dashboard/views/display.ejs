@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../css/styles.css">
+    <title>Display a Specific Panda</title>
+</head>
+<body>
+    <div>
+        <% if(panda) { %>
+            <hr>
+            <h2>Name: <%= panda.name %></h2>
+            <h2>Age: <%= panda.age %></h2>
+            <h2>Fav Food: <%= panda.food %></h2>
+            <p><a href="/panda/edit/<%= panda._id %>">Edit</a></p>
+            <hr>
+        <% } %>
+    </div>
+    <a class="back" href="/">Go back</a>
+</body>
+</html>
