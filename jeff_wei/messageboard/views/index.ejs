@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Messages</title>
+	<link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+	<h1>Dojo Message Board</h1>
+	<form action="/post" method="post">
+		Name: <input type="text" name="name">
+		Post: <textarea name="post" placeholder="write a new post"></textarea>
+		<button>Create</button>
+	</form>
+	<%for (let i in posts){ %>
+		<h4>Name: <%= posts[i].name %></h4>
+		<h4>Post: <%= posts[i].post %></h4>
+		<hr>
+		<%for(let comment of posts[i].comments){%>
+			<p>Name: <%= comment.name %> @ <%= comment.createdAt %></p>
+			<p>Comment: <%= comment.comment %></p>
+			<hr>
+		<%}%>
+		<form action="/post/<%= posts[i]._id %>" method="post">
+			Name: <input type="text" name="name">
+			Comment: <textarea name="comment" placeholder="write a new comment"></textarea>
+			<button>Create</button>
+		</form>
+	<%}%>
+</body>
+</html>
