@@ -1,0 +1,19 @@
+<div id="tasks">
+  <h1>Restful Tasks API</h1>
+  
+  <button (click)="getTasks()">Get all Tasks</button>
+  
+  <div *ngFor='let task of tasks; let idx = index'>
+    <p>{{ task.title }}</p>
+    <button id='show' (click)="info(idx)">Show</button>
+  </div>
+</div>
+
+
+<!-- <div>
+  <h2>{{ task?.title }}</h2>
+  <h3>{{ task?.description }}</h3>
+</div> -->
+
+<!-- This connects to the task.component.html -->
+<app-task *ngIf='task' [task]='task'></app-task>

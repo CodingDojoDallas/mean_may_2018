@@ -1,0 +1,31 @@
+h1 {
+    text-align: center;
+}
+
+button {
+    margin-left: 205px;
+    margin-bottom: 10px;
+}
+
+#show {
+    margin-left: 227px;
+}
+
+p, h2, h3 {
+    text-align: center;
+}
+
+#tasks {
+   border: 4px solid black; 
+   width: 500px;
+   margin-left: auto;
+   margin-right: auto;
+   border-radius: 20px;
+   /* background-color: rgb(102, 209, 241) */
+   background: linear-gradient(rgb(102, 241, 183), rgb(102, 209, 241), rgb(102, 241, 183));
+}
+
+#showTasks {
+    border: 4px solid black;
+    height: 50px;
+}
