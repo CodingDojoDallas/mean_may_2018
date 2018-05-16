@@ -1,0 +1,134 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf400
+{\fonttbl\f0\froman\fcharset0 Times-Roman;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;}
+\margl1440\margr1440\vieww9600\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sl260\sa200\partightenfactor0
+
+\f0\b\fs24 \cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 1. Setting types\
+var myString: string;\
+// I can assign myString like this:\
+myString = "Bee stinger";\
+// Why is there a problem with this? What can I do to fix this?\
+myString = "Test";\
+// myString was set to be a string. \
+//Line 5 was changing that to an integer so it needed to be changed back to a string.\
+\
+2. Setting the types for function parameters\
+function sayHello(name: string)\{\
+   return `Hello, $\{name\}!`;\
+\}\
+// This is working great:\
+console.log(sayHello("Kermit"));\
+// Why isn't this working? I want it to return "Hello, 9!"\
+console.log(sayHello("9"));\
+// Line 7 was looking for a string, not an integer.\
+// Putting the nine in quotes solved that.\
+\
+3. Optional parameters\
+function fullName(firstName: string, lastName: string, middleName: string)\{\
+   let fullName = `$\{firstName\} $\{middleName\} $\{lastName\}`;\
+   return fullName;\
+\}\
+// This works:\
+console.log(fullName("Mary", "Moore", "Tyler"));\
+// What do I do if someone doesn't have a middle name?\
+console.log(fullName("Jimbo","", "Jones"));\
+// You still need something for the middle name. Empty quotes does the trick.\
+\
+4. Interfaces and function parameters\
+interface Student \{\
+   firstName: string;\
+   lastName: string;\
+   belts: number;\
+\}\
+function graduate(ninja: Student)\{\
+   return `Congratulations, $\{ninja.firstName\} $\{ninja.lastName\}, you earned $\{ninja.belts\} belts!`;\
+\}\
+const christine = \{\
+   firstName: "Christine",\
+   lastName: "Yang",\
+   belts: 2\
+\}\
+const jay = \{\
+   firstName: "Jay",\
+   lastName: "Patel",\
+   belts: 4\
+\}\
+// This seems to work fine:\
+console.log(graduate(christine));\
+// This one has problems:\
+console.log(graduate(jay));\
+// Line 17 needed an "s" to make it plural.\
+\
+5. Classes and function parameters\
+class Ninja \{\
+   fullName: string;\
+   constructor(\
+      public firstName: string,\
+      public lastName: string)\{\
+         this.fullName = `$\{firstName\} $\{lastName\}`;\
+      \}\
+   debug()\{\
+      console.log("Console.log() is my friend.")\
+   \}\
+\}\
+// This is not making an instance of Ninja, for some reason:\
+const shane = new Ninja("andy", "moon");\
+// Since I'm having trouble making an instance of Ninja, I decided to do this:\
+const turing = \{\
+   fullName: "Alan Turing",\
+   firstName: "Alan",\
+   lastName: "Turing"\
+\}\
+// Now I'll make a study function, which is a lot like our graduate function from above:\
+function study(programmer: Ninja)\{\
+   return `Ready to whiteboard an algorithm, $\{programmer.fullName\}?`\
+\}\
+// Now this has problems:\
+console.log(study(shane));\
+\
+6. Arrow functions\
+var increment = x => x + 1;\
+console.log(increment(3));\
+var square = x => (x * x);\
+console.log(square(4));\
+var multiply = (x, y) => x * y;\
+console.log(multiply(2, 5));\
+// Nor is this working:\
+var math = (x, y) => \{\
+    let sum = x + y;\
+    let product = x * y;\
+    let difference = Math.abs(x - y);\
+    return[sum, product, difference]\
+\}\
+console.log(math (2,5))\
+\
+   \
+//Changed the \{\} to () on line 3\
+//Added () around the x&y on line 5 and added a console log on line 6\
+//Changed 8-14 to \
+var math = (x, y) => \{\
+    let sum = x + y;\
+    let product = x * y;\
+    let difference = Math.abs(x - y);\
+    return[sum, product, difference]\
+\}\
+console.log(math (2,5))\
+\
+7. Arrow functions and 'this'\
+ class Elephant \{\
+   constructor(public age: number)\{\}\
+   birthday = age => \{\
+      this.age++;\
+   \}\
+\}\
+const babar = new Elephant(9);\
+console.log(`Babar's age is $\{babar.age\}.`)\
+setTimeout(babar.birthday, 1000)\
+setTimeout(function()\{\
+   console.log(`Babar's age is $\{babar.age\}.`)\
+   \}, 10000)\
+// Changed the code to this.}
