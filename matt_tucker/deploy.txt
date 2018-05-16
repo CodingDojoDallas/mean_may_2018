@@ -1,0 +1,82 @@
+- Create a new git repo
+
+- Create .gitignore in project
+> touch .gitignore
+.DS_Store
+.idea
+.vagrant
+bootstrap.sh
+VagrantFile
+bower_components/
+node_modules
+package-lock.json
+
+- Link github repo to your assignment/belt
+> git remote add origin <GITHUB_URL>
+
+SET UP AWS INSTANCE
+
+- Change <key>.pem permissions
+> chmod 400 <key>.pem
+
+- SSH into your EC2 Instance (you can get this from the connect button)
+> ssh -i "<key>.pem" ubuntu@<EC2-Public-IP>
+
+- When prompted yes or no
+> yes
+
+!!YOU ARE NOW IN THE EC2 SERVER!!
+> sudo apt-get update
+> sudo apt-get install -y build-essential openssl libssl-dev pkg-config
+> sudo apt-get install -y nodejs nodejs-legacy
+> sudo apt-get install npm -y
+> sudo npm cache clean -f
+> sudo npm install -g n
+> sudo n stable
+> sudo npm install -g @angular/cli
+> sudo apt-get install nginx git -y 
+
+> cd /var/www
+* NOTE ON THIS * ( if /var/www does not exist then run: sudo mkdir /var/www)
+
+> sudo git clone <GITHUB_URL>
+> cd /etc/nginx/sites-available
+> sudo vim <REPO_NAME>
+* Copy the below content into the file *
+server {
+    listen 80;
+    location / {
+        proxy_pass http://<PRIVATE-IP>:<NODE-PROJECT-PORT>;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+}
+
+> sudo rm default
+> sudo ln -s /etc/nginx/sites-available/<REPO_NAME> /etc/nginx/sites-enabled/<REPO_NAME>
+> sudo rm /etc/nginx/sites-enabled/default
+> sudo npm install pm2 -g
+> cd /var/www
+> sudo chown -R ubuntu <REPO_NAME>
+> cd <REPO_NAME>
+> npm install
+> cd client
+> npm install
+> ng build
+> sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
+> echo "deb [ arch=amd64,arm64 ] http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list
+> sudo apt-get update
+> sudo apt-get install -y mongodb
+> sudo mkdir /data
+> sudo mkdir /data/db
+> sudo chown -R ubuntu /data/db
+> ps ax | grep mongod
+** Look for the PID of the top service **
+> sudo kill <PID>
+> cd /var/www/<REPO_NAME>
+> pm2 start server.js
+> pm2 start mongod
+> sudo service nginx stop && sudo service nginx start
