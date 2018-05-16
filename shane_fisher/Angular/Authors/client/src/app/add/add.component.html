@@ -1,0 +1,9 @@
+<a [routerLink]="['/']">Home</a>
+<p>Add a new author:</p>
+<form (submit)="onSubmit()" class="postForm" *ngIf="newAuthor">
+  <label for="name">Name:</label>
+  <input type="text" name="newAuthor.name" [(ngModel)]="newAuthor.name" />
+  <button [routerLink]="['/']">Cancel</button>
+  <input type="submit" value="Submit" />
+</form>
+

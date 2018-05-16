@@ -1,0 +1,48 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Restful Tasks API
+  </h1>
+</div>
+<div id="task_wrapper">
+  <h1>New Task</h1>
+  <form (submit)="onSubmit()" class="postForm">
+    <label>Task title:
+      <input type="text" name="newTask.title" [(ngModel)]="newTask.title" />
+    </label>
+    <label>Task description:
+      <input type="text" name="newTask.description" [(ngModel)]="newTask.description" />
+    </label>
+    <input type="submit" value="Create" />
+  </form>
+</div>
+<button (click)="getTasksFromService()">Get all tasks</button>
+<div>
+  <div *ngFor="let x of tasks">
+    <h1>
+      {{x.title}}
+    </h1>
+    <button (click)="taskToShow(x._id)">Show</button>
+    <button (click)="getEditTask(x._id)">Edit</button>
+    <button (click)="destroyTask(x._id)">Delete</button>
+  </div>
+</div>
+<div id="edit_task" *ngIf="task.title">
+<h1>Edit a Task</h1>
+<form (submit)="onEdit()" class="postForm">
+  <label>Task title:
+    <input type="text" name="task.title" [(ngModel)]="task.title" />
+  </label>
+  <label>Task description:
+    <input type="text" name="task.description" [(ngModel)]="task.description" />
+  </label>
+  <input type="submit" value="Edit" />
+</form>
+<p> {{ task | json }} </p>
+</div>
+<!-- Injected task component -->
+<div class="root">
+  <app-task *ngIf="selectedTask" [taskToShow]="selectedTask"></app-task>
+</div>
+<!-- ######################  -->
+

@@ -1,0 +1,23 @@
+<h1>Browse the Ledger</h1>
+<p>Here you can browse all ShintoCoin transactions.</p>
+<h3>Total Coins on Market: {{_shintoService.totalCoins}}</h3>
+<table>
+  <thead>
+  <tr>
+    <th>ShintoCoin Ledger</th>
+  </tr>
+  <tr>
+    <th>Action</th>
+    <th>Amount</th>
+    <th>Value</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let transaction of _shintoService.transactions">
+      <td>{{transaction.action}}</td>
+      <td>{{transaction.qty}}</td>
+      <td>{{transaction.value}}</td>
+      <button (click)='_shintoService.findTransaction(transaction.id)' [routerLink]="['/transaction', transaction.id]">Details</button>
+    </tr>
+  </tbody>
+</table>

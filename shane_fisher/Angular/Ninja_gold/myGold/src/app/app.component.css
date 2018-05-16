@@ -1,0 +1,26 @@
+.workplace {
+    display: inline-block;
+    width: 150px;
+    height: 200px;
+    margin: 20px;
+    border: 2px solid black;
+    vertical-align: top;
+    text-align: center;
+}
+
+#log {
+    border: 2px solid blue;
+    width: 500px;
+    height: 200px;
+    overflow: scroll;
+    margin: 0 auto;
+}
+
+#workgroup {
+    width: 800px;
+    margin: 0 auto;
+}
+
+#login {
+    float: right;
+}
