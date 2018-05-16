@@ -1,0 +1,17 @@
+<div class="row">
+	<router-outlet ></router-outlet>
+</div>
+<div class="row">
+	<h3>Product List</h3>
+</div>
+<div class="row">
+	<div class="col-sm-3 border" *ngFor="let product of this._http.products">
+		<div>
+			<img src="{{product.image}}" alt="{{product.title}} pic" style="width:100%">
+			<p>{{product.title}}</p>
+			<p>${{product.price}}</p>
+			<button [routerLink]="['edit',product._id]">Edit</button>
+			<button (click)="destroy(product._id)">Delete</button>
+		</div>
+	</div>
+</div>
