@@ -1,0 +1,9 @@
+img {
+    width: 800px;
+}
+
+.display {
+    display: inline-block;
+    width: 900px;
+    vertical-align: top;
+}
