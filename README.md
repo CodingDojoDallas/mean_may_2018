@@ -30,6 +30,7 @@ API/Modularize - https://youtu.be/22ET8M39zgg <br>
 Angular Set Up - https://youtu.be/gGVy-XWIXus <br>
 Retro - https://youtu.be/YqoNrff2zaE <br>
 Routing - https://youtu.be/bIv-LBiJdaE <br>
+QA - https://youtu.be/_SIJ87FndMM <br>
 
 ## Demos:
 Default Express - https://youtu.be/cHFLqYK32ho <br>
