@@ -1,0 +1,39 @@
+<div class="row">
+  <button [routerLink]="['/browse']">Browse</button>
+  <button [routerLink]="['/listings']">My Listings</button>
+  <button (click)="this._http.logout()">Logout</button>
+</div>
+<div class="row">
+	<div class="col">
+		<form>
+			<input
+				class="col-sm-8"
+				type="text"
+				name="searchbox"
+				[(ngModel)]="search"
+				#searchbox="ngModel"
+				(keyup)="getSearch()"
+				placeholder="Type Search Here"
+			>
+		</form>
+	</div>
+</div>
+<div class="row" style="overflow-y: scroll; height: 70vh ">
+	<div class="col">
+		<h4>Browse Bikes</h4>
+		<p *ngIf="this._http.bikes.length <=0 ">No Bikes Found</p>
+		<div *ngFor= "let bike of this._http.bikes" class="row">
+			<img class ="col-sm-2" src={{bike.image}} alt="bike img" style="height:8rem" >
+			<div class="col"> 
+				<h4>{{bike.title}}</h4>
+				<p>{{bike.description}}</p>
+			</div>
+			<div class="col">
+				<h4>$ {{bike.price}}</h4>
+				<p>{{bike.location}}</p>
+				<button *ngIf="bike.user != this._http.userid">Contact</button>
+				<button *ngIf="bike.user == this._http.userid" (click)='delete()'>Delete</button>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,105 @@
+
+<div class="row">
+  <button [routerLink]="['/browse']">Browse</button>
+  <button [routerLink]="['/listings']">My Listings</button>
+  <button (click)="this._http.logout()">Logout</button>
+</div>
+
+<div class="row">
+	<h4>Add a listing</h4>
+	<div class='col' *ngIf="errors">
+		<p class="text-danger" *ngFor="let x of errors">{{x}}</p>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col">
+		<form (submit)="addBike($event)">
+			<div class="form-group row">
+				<label class="col-sm-3">Title
+				</label>
+					<input class="col-sm-6" 
+					type="text"
+					 name="title"
+					 required
+					 minlength="5"
+					 [(ngModel)]="bike.title"
+					 #title="ngModel"
+					 >
+					 <p class="col-sm-1" *ngIf="title.valid" style="color:green;">✔</p>
+			</div>
+			<div class="form-group row">
+				<label class="col-sm-3">Price
+				</label>
+					<input class="col-sm-6" 
+					type="number"
+					 name="price"
+					 required
+					 default="1"
+					 min="1"
+					 [(ngModel)]="bike.price"
+					 #price="ngModel"
+					 >
+					 <p class="col-sm-1" *ngIf="price.valid" style="color:green;">✔</p>
+			</div>
+			<div class="form-group row">
+				<label class="col-sm-3">Location
+				</label>
+					<input class="col-sm-6" 
+					type="text"
+					 name="location"
+					 required
+					 minlength="3"
+					 [(ngModel)]="bike.location"
+					 #location="ngModel"
+					 >
+					 <p class="col-sm-1" *ngIf="location.valid" style="color:green;">✔</p>
+			</div>
+			<div class="form-group row">
+				<label class="col-sm-3">Image URL
+				</label>
+					<input class="col-sm-6" 
+					type="text"
+					 name="image"
+					 minlength="3"
+					 [(ngModel)]="bike.image"
+					 >
+			</div>
+			<div class="form-group row">
+				<label class="col-sm-3">Description
+				</label>
+					<textarea class="col-sm-6" 
+					 name="description"
+					 required
+					 minlength="6"
+					 [(ngModel)]="bike.description"
+					 #description="ngModel"
+					 ></textarea>
+					 <p class="col-sm-1" *ngIf="description.valid" style="color:green;">✔</p>
+			</div>
+			<div class="form-group">
+				<button class="btn btn-primary offset-sm-3">Create</button>
+			</div>
+		</form>
+	</div>
+</div>
+<div class="row">
+	<div class="col">
+		<h4>My Listings</h4>
+		<p *ngIf="mybikes.length <= 0 ">No Listings Found</p>
+		<div *ngFor= "let bike of mybikes" class="row">
+			<img class ="col-sm-2" src={{bike.image}} alt="bike img" style="height:8rem" >
+			<div class="col"> 
+				<h4>{{bike.title}}</h4>
+				<p>{{bike.description}}</p>
+			</div>
+			<div class="col">
+				<h4>$ {{bike.price}}</h4>
+				<p>{{bike.location}}</p>
+				<button (click)="edit(bike)">Update</button>
+				<button (click)='delete()'>Delete</button>
+			</div>
+			<hr>
+		</div>
+	</div>
+</div>
