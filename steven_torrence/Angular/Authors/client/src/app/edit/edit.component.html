@@ -1,0 +1,12 @@
+<button [routerLink]="['/home']">Home</button>
+
+<p>Edit this author:</p>
+
+<form>
+  <label for="name">Name:</label>
+  <input [(ngModel)]='thisAuthor.name' type="text" name="name" id="name">
+  <button [routerLink]="['/home']">Cancel</button>
+  <input (click)="editAuthor(thisAuthor ,$event)" [routerLink]="['/home']" type="submit" value="Submit">
+  <br>
+  <small *ngIf="errors">{{ errors.name.message }}</small>
+</form>
