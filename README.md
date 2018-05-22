@@ -37,4 +37,5 @@ Default Express - https://youtu.be/cHFLqYK32ho <br>
 Sockets - https://youtu.be/zoXRJyWh0GI <br>
 Authentication - https://youtu.be/Odemv6xKhZQ <br>
 Ng Tasks - https://youtu.be/iEfIEFufJXc <br>
+Route Params - https://youtu.be/ZZbhymZThns <br>
 
