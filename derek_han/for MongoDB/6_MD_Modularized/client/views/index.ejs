@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dogs</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+
+<body>
+    <div>
+        <h1>Here are the awesome Dogs!</h1>
+        <% if (dogs) { %>
+            <% for(var x of dogs) { %>
+            <!-- <p>Name : <%=  x._id %></p> -->
+              <a href="/dogs/<%=  x._id %>"><p><%=  x.name %></p></a>
+                <!-- <p>Age : <%= x.age %></p> -->
+                <!-- <p>Color : <%= x.color %></p> -->
+                <!-- <p>Type : <%= x.type %></p> -->
+                <!-- <p> more info</p> -->
+                <hr style="border-bottom:thin black solid;">
+            <% } %>
+        <% } %>
+    </div>
+</body>
+
+</html>

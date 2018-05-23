@@ -1,0 +1,28 @@
+div {
+    width: 500px;
+    margin: 0 auto;
+    padding: 30px;
+    border: thin solid gray;
+    border-radius: 5px;
+    background-color: lightsteelblue;
+
+}
+.btn {
+    display: inline-block;
+    width: 100px;
+    background-color: green;
+    border-radius: 5px;
+}
+
+skip{
+    display: inline-block;
+    width: 100px;
+    background-color: green;
+}
+
+h1 {
+    text-align: center;
+    font-weight: bold;
+    padding: 5px 5px;
+    color: peachpuff;
+}

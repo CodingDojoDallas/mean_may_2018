@@ -1,0 +1,33 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+div {
+    text-align: center;
+    width: 500px;
+    margin: 0 auto;
+    padding: 30px;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    background:-webkit-gradient(linear,lefttop,leftbottom,color-stop(0%,rgb(126,198,234)),color-stop(24%,rgb(70,179,234)),color-stop(100%,rgb(3,135,201)));
+    background:-webkit-linear-gradient(top,rgb(126,198,234)0%,rgb(70,179,234)45%,rgb(3,135,201)100%);
+    background:   -moz-linear-gradient(top,rgb(126,198,234)0%,rgb(70,179,234)45%,rgb(3,135,201)100%);
+    background:        linear-gradient(top,rgb(126,198,234)0%,rgb(70,179,234)45%,rgb(3,135,201)100%);
+}
+
+
+
+form{
+    text-align: right;
+    width: 200px;
+    padding: 20px auto;
+    /*border: thin black solid;*/
+    margin: 0 auto;
+}
+
+
+h1 {
+    text-align: center;
+    font-weight: bold;
+    padding: 5px 5px;
+}
+

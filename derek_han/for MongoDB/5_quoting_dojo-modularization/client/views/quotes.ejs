@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Quotes</title>
+</head>
+<link rel="stylesheet" type="text/css" href="css/styles.css">
+
+<body>
+    <div>
+        <h1>Here are the awesome quotes!</h1>
+        <% if (quotes) { %>
+            <% for(var x of quotes) { %>
+            <hr>
+                <p><%= x.quote %></p>
+                <p><%= x.name + ", " + x.createdAt %></p>
+            <% } %>
+            <hr>
+        <% } %>
+    </div>
+</body>
+
+</html>

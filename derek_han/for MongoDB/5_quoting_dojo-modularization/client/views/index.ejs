@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Survey Form</title>
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
+    </head>
+    <body>
+        <div>
+            <h1>Add Your favourite Quote!</h1>
+            <form action="/quotes" method="POST">
+                <label for="name">Your Name: </label>
+                <input type="text" name="name" id="name">
+                
+                <label for="age">Your Quote: </label>
+                <input type="text" name="quote" id="quote">
+                
+                <input class="btn" type="submit" value="Add my Quote">
+            </form>
+            <form action="/quotes" method="GET">
+                <input class="btn skip" type="submit" value="Skip to Quotes">
+            </form>
+        </div>
+        <div>
+            <% if(messages.registration) { %>
+                <hr>
+                <% for (var x of messages.registration) { %>
+
+                    <h3><%= x %></h3>
+                    
+                <% } %>
+                <hr>
+            <% } %>
+        </div>
+    </body>
+</html>

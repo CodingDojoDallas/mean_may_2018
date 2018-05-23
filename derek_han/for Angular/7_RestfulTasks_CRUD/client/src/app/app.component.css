@@ -1,0 +1,22 @@
+.wrapper{
+	display: block;
+	width: 600px;
+	margin: 20px auto;
+	text-align: center;
+	border: 5px gray solid;
+	border-radius: 10px;
+	padding: 10px;
+}
+
+.box{
+	border: 5px solid orange;
+	border-radius: 10px;
+	padding: 10px;
+}
+
+/*label{
+	display: block;
+}*/
+/*form{
+	text-align: right;
+}*/

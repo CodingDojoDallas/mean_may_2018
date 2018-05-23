@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dog's Id</title>
+  <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+<body>
+  <div>
+	<h1>New Dogi's Info</h1>
+       	<p>Name : <%= dogs.name %></p>
+        <p>age : <%= dogs.age %></p>
+        <p>Color : <%= dogs.color %></p> 
+        <p>Type : <%= dogs.type %></p>
+      	<hr>
+       <a href="/">Go back to List</a>
+       <hr>
+       <a href="/dogs/edit/<%= dogs._id %>">Edit info</a>
+       <hr>
+        <form action="/dogs/destroy/<%= dogs._id %>" method="POST">
+            <input id="button1" type="submit" value="Delete <%= dogs.name %> info">
+        </form>
+        <hr>
+	</div>
+
+</body>
+</html>

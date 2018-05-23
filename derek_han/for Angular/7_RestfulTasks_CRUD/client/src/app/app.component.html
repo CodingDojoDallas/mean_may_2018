@@ -1,0 +1,47 @@
+<div class="wrapper">
+	
+  <div class="box">
+    <h1>New Task</h1>
+    <form (submit)="onSubmit()">
+      <label>Title:
+        <input type="text" name="newTask.title" [(ngModel)]="newTask.title">
+      </label>
+
+      <label>Description:
+        <input type="text" name="newTask.description" [(ngModel)]="newTask.description">
+      </label>
+
+      <input type="submit" value="Create" />
+    </form>
+  </div>
+
+  <div class="box">
+    <h1>Task List</h1>
+      <div *ngFor="let task of tasks; let idx = index">
+        <p>{{ task.title }}</p>
+        <button (click)="toggleEdit(task)">EDIT</button>
+
+        <p>{{ task.description }}</p>
+        <button (click)="delete(task)">DELETE</button>
+        <hr>
+      </div>
+
+      <div class="box" *ngIf="isEdit">
+        <h1>Edit a Task</h1>
+        <form (submit)="onEditSubmit()">
+          <label>Title:
+            <input type="text" name="editTask.title" [(ngModel)]="editTask.title">
+          </label>
+
+          <label>Description:
+            <input type="text" name="editTask.description" [(ngModel)]="editTask.description">
+          </label>
+
+          <input type="submit" value="Edit" />
+        </form>
+      </div>
+
+  </div>
+  
+    
+</div>

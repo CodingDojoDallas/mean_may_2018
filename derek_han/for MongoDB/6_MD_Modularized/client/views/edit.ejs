@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Survey Form</title>
+        <link rel="stylesheet" type="text/css" href="/css/styles.css">
+
+    </head>
+    <body>
+        <div>
+            <h1>Edit Dogi's Info</h1>
+            <form action="/dogs/<%= dogs._id %>" method="POST">
+                <label for="name">Name: </label>
+                <input type="text" name="name" id="name" value="<%= dogs.name %>">
+                
+                <label for="age">Age: </label>
+                <input type="text" name="age" id="age" value="<%= dogs.age %>">
+
+                <label for="color">Color: </label>
+                <input type="text" name="color" id="color" value="<%= dogs.color %>">
+
+                <label for="type">Type: </label>
+                <input type="text" name="type" id="type" value="<%= dogs.type %>">
+                
+                <input id="button1" type="submit" value="Change">
+            </form>
+       </div>
+        <% if(messages.registration) { %>
+            <% for (var x of messages.registration) { %>
+                <h3><%= x %></h3>
+            <% } %>
+        <% } %>
+    </body>
+</html>
