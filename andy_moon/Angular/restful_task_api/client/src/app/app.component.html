@@ -1,0 +1,19 @@
+<h2>Restful Tasks API</h2>
+
+<button (click)="_taskService.allTasks()">Get all Tasks</button>
+<button (click)="_taskService.oneTasks('5afa0463aba6b70de121a7e6')">Get one Tasks</button>
+<button (click)="_taskService.createTasks({title: 'Learning Angular', description: 'It is hard', completed: false})">Create a Tasks</button>
+<button (click)="_taskService.deleteTasks('5afc7c5596fe8d97f8dc5620')">Delete a Tasks</button>
+<button (click)="_taskService.updateTasks('5afa02bded11270d6393bfb5', {title: 'Learning Angular', description: 'It is soft', completed: false})">Update a Tasks</button>
+
+<!-- <div *ngFor="let task of tasks; let idx = index">
+  {{ idx }}
+<p>{{ task.title }}</p>
+<button (click)="info(task)">Show</button>
+
+</div>
+
+<div>
+  <p>{{task.title}}</p>
+  <p>{{task.description}}</p>
+</div> -->
