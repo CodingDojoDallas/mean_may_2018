@@ -1,0 +1,14 @@
+<button [routerLink]="['/create']">Add an Author</button>
+
+<p>We have quotes by:</p>
+
+<table border="1">
+  <tr>
+    <td><h2>Author</h2></td>
+    <td><h2>Actions Available</h2></td>
+  </tr>
+  <tr *ngFor='let author of authors'>
+    <td><h3>{{ author.name }}</h3></td>
+    <td><button (click)="editAuthor(author)" [routerLink]="['/edit']">Edit</button><button (click)="removeAuthor(author)" [routerLink]="['/home']">Delete</button></td>
+  </tr>
+</table>

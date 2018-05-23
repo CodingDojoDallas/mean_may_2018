@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Survey Form</title>
+</head>
+    <body>
+        <div>
+            <form action="/pandas" method="post">
+                <label for="name">Name: </label>
+                <input type="text" name="name" id="name">
+
+                <label for="age">Age: </label>
+                <input type="text" name="age" id="age">
+
+                <label for="food">Favorite Food: </label>
+                <input type="text" name="food" id="food">
+
+                <input type="submit" value="Submit!">
+            </form>
+            <% if(messages.registration) { %>
+                <% for (var x of messages.registration) { %>
+                    <h3><%= x %></h3>
+                <% } %>
+            <% } %>
+        </div>
+        <a href="/">Go back</a>
+    </body>
+</html>

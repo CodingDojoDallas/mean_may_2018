@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="css/styles.css">
+        <title>Survey Form</title>
+    </head>
+    <body>
+        <div>
+            <% if(pandas) { %>
+                <% for (var x of pandas) { %>
+                    <h2> Name: <a href='/panda/<%= x._id %>'><%= x.name %></a></h2>
+                    <!-- <h3><%= 'Age: ' + x.age %></h3>
+                    <h3><%= "Fav Food: " + x.food %></h3> -->
+                    <p><a href="/panda/edit/<%= x._id %>">Edit</a></p>
+                    <form action="/panda/release/<%= x._id %>" method="post">
+                        <input id="release" type="submit" value="Release this panda!">
+                    </form>
+                    <hr>
+                <% } %>
+            <% } %>
+        </div>
+        <a class= "add" href="/panda/new">Add a Panda</a>
+    </body>
+</html>

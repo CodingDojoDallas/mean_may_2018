@@ -1,0 +1,12 @@
+<div>
+  <h1>Burbank, CA</h1>
+  <div class="display">
+    <p>Humidity: {{ weather.main.humidity }}</p>
+    <p>Temperature (Average): {{ (1.8 * (weather.main.temp_max - 273) + 32 + 1.8 * (weather.main.temp_min - 273) + 32) / 2}}</p>
+    <p>Temperature (High): {{ (1.8 * (weather.main.temp_max - 273) + 32) }}</p>
+    <p>Temperature (Low): {{ (1.8 * (weather.main.temp_min - 273) + 32) }}</p>
+    <p>Status: {{ weather.weather[0].main }}</p>
+  </div>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Burbank_media_district_from_Griffith_Park_2015-11-07.jpg/1200px-Burbank_media_district_from_Griffith_Park_2015-11-07.jpg"
+    alt="Picture of Burbank">
+</div>

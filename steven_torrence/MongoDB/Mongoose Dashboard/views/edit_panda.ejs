@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Survey Form</title>
+</head>
+    <body>
+        <h1>Current Panda Info:</h1>
+        <% if(panda) { %>
+            <hr>
+            <h3>Name: <%= panda.name %></h3>
+            <h3>Age: <%= panda.age %></h3>
+            <h3>Fav Food: <%= panda.food %></h3>
+            <hr>
+        <% } %>
+        <div>
+            <form action="/pandas/<%= panda._id %>" method="post">
+                <label for="name">Name: </label>
+                <input type="text" name="name" id="name">
+
+                <label for="age">Age: </label>
+                <input type="text" name="age" id="age">
+
+                <label for="food">Favorite Food: </label>
+                <input type="text" name="food" id="food">
+
+                <input type="submit" value="Submit!">
+            </form>
+            <% if(messages.registration) { %>
+                <% for (var x of messages.registration) { %>
+                    <h3><%= x %></h3>
+                <% } %>
+            <% } %>
+        </div>
+        <a href="/">Go back</a>
+    </body>
+</html>
