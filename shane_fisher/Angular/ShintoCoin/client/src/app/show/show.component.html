@@ -1,0 +1,6 @@
+<h1>Ledger Transaction Details</h1>
+<p>Detailed view of a transaction from the ledger.</p>
+<div *ngIf="_shintoService.trans">
+<p>Transaction ID: {{_shintoService.trans.id}}</p>
+<p>{{_shintoService.trans.action}} {{_shintoService.trans.qty}} ShintoCoin for ${{_shintoService.trans.value}} each.</p>
+</div>

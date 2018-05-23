@@ -1,0 +1,13 @@
+#task_wrapper {
+    margin: 10px;
+    border: 2px solid blue;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#single_wrapper {
+    margin: 10px;
+    border: 2px solid green;
+    border-radius: 5px;
+    text-align: center;
+}

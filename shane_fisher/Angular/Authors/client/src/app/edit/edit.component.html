@@ -1,0 +1,8 @@
+<a [routerLink]="['/']">Home</a>
+<p>Edit this author:</p>
+<form (submit)="onEdit()" class="postForm" *ngIf="_httpService.author">
+  <label for="name">Name:</label>
+  <input type="text" name="_httpService.author.name" [(ngModel)]="_httpService.author.name" />
+  <button [routerLink]="['/']">Cancel</button>
+  <input type="submit" value="Submit" />
+</form>

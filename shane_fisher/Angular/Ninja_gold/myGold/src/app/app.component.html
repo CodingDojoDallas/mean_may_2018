@@ -1,0 +1,44 @@
+
+
+<form id="login">
+  <label for="name">Name</label>
+  <input type="text" name="name">
+  <button (click)="loginToService()">Login</button>
+</form>
+
+<h1>Total gold:  {{ gold }}</h1>
+  
+<div id="workgroup">
+  <div class="workplace">
+    <h2>Farm</h2>
+    <p>Earns 2-5 gold</p>
+    <button (click)="farmGold()">Farm!</button>
+  </div>
+
+  <div class="workplace">
+    <h2>Cave</h2>
+    <p>Earns 5-10 gold</p>
+    <button (click)="caveGold()">Cave!</button>
+  </div>
+
+  <div class="workplace">
+    <h2>House</h2>
+    <p>Earns 7-15 gold</p>
+    <button (click)="houseGold()">House!</button>
+  </div>
+
+  <div class="workplace">
+    <h2>Casino</h2>
+    <p>Earns or lose</p>
+    <p>up to 100 gold</p>
+    <button (click)="casinoGold()">Casino!</button>
+  </div>
+
+</div>
+
+<div id="log" >
+  <h1>Adventure Log</h1>
+    <p *ngFor="let x of log">
+      {{ x }}
+    </p>
+</div>

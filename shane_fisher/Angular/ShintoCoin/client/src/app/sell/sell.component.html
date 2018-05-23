@@ -1,0 +1,7 @@
+<h1>Sell ShintoCoins</h1>
+<p>Current ShintoCoin Value: ${{_shintoService.shintoValue}}.00 </p>
+<p>Number of ShintoCoins Owned: {{_shintoService.personalCoins}}</p>
+<form (submit)="_shintoService.sellCoin(qty)">
+  <input type="number" placeholder="number" name="sell" [(ngModel)]="qty" />
+  <button type="submit">Sell</button>
+</form>

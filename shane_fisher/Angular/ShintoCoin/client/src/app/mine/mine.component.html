@@ -1,0 +1,11 @@
+<h1>Mine ShintoCoins</h1>
+<p>Here you can mine ShintoCoins by being the first to answer the trivia:</p>
+<p>{{result}}</p>
+<!-- <button (click)="getTrivia()">Get a new trivia question</button> -->
+<p *ngIf="trivia">{{trivia.results[0].question}}</p>
+<form (submit)="triviaAnswer(answer)">
+  <select name="answers" [(ngModel)]="answer">
+    <option *ngFor="let answer of answers" [ngValue]="answer">{{answer}}</option>
+  </select>
+  <button type="submit">Mine</button>
+</form>
