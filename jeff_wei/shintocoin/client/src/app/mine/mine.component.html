@@ -1,0 +1,9 @@
+<h3>Mine ShintoCoin</h3>
+<p>Answer the question correctly for a ShintoCoin!</p>
+<form>
+	<p>What is {{index+1}}th decimal number of pi?</p>
+	<input type="number" name="guess" max="1" [(ngModel)]="guess">
+	<button type="button" (click)="check()">Guess</button>
+</form>
+<p *ngIf="correct==1">Correct! You get 1 Shinto Coin. ShintoCoin balance: {{balance}}</p>
+<p *ngIf="correct==2">ERR WRONG </p>

@@ -1,0 +1,16 @@
+<div class="row">
+	<div class='col'>
+		<h3>Add new product</h3>
+		<form >
+			Title: <input type="text" name="title" [(ngModel)]="title">
+			Price: $<input type="text" name="price" [(ngModel)]="price">
+			Image URL: <input type="text" name="image" [(ngModel)]="image">
+			<button (click)="create()">Create</button>
+		</form>
+		<div *ngIf="errors">
+			<div *ngFor="let x of errors">
+				<p class="text-danger">{{x}}</p>
+			</div>
+		</div>
+	</div>
+</div>

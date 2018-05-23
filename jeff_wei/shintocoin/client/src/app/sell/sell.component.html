@@ -1,0 +1,8 @@
+<h3>Sell ShintoCoin</h3>
+
+<p>Current ShintoCoin balance: ${{balance}}</p>
+<form >
+	<input type="number" name="amount" [(ngModel)]="amount">
+	<button type='button' (click)="sell()">Sell</button>
+</form>
+<p *ngIf="error">Cannot sell what you dont have!</p>

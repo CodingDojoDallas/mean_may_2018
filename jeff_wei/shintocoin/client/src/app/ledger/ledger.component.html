@@ -1,0 +1,21 @@
+<h3>ShintoCoin Ledger</h3>
+<table>
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Action</th>
+			<th>Amount</th>
+			<th>Balance</th>
+			<th>Details</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let event of history;let idx=index">
+			<td>{{event.id}}</td>
+			<td>{{event.action}}</td>
+			<td>{{event.amount}}</td>
+			<td>{{event.balance}}</td>
+			<td><button [routerLink]="['/transaction',idx]">Show</button></td>
+		</tr>
+	</tbody>
+</table>

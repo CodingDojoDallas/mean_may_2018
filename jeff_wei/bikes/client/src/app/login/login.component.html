@@ -1,0 +1,116 @@
+<div class="row">
+	<div class='col' *ngIf="errors">
+		<p class="text-danger" *ngFor="let x of errors">{{x}}</p>
+	</div>
+</div>
+<div class="row">
+	<div class="col">
+		<h4>Register</h4>
+		<form (submit)="register($event)">
+			<div class="form-group row">
+				<label class="col-sm-3">First Name
+				</label>
+					<input class="col-sm-6" 
+					type="text"
+					 name="first_name"
+					 required
+					 minlength="2"
+					 [(ngModel)]="user.first_name"
+					 #first_name="ngModel"
+					 >
+					 <p class="col-sm-1" *ngIf="first_name.valid" style="color:green;">✔</p>
+			</div>
+			<div class="form-group row">
+				<label class="col-sm-3">Last Name
+				</label>
+					<input class="col-sm-6" 
+					type="text"
+					 name="last_name"
+					 required
+					 minlength="2"
+					 [(ngModel)]="user.last_name"
+					 #last_name="ngModel"
+					 >
+					 <p class="col-sm-1" *ngIf="last_name.valid" style="color:green;">✔</p>
+			</div>
+			<div class="form-group row">
+				<label class="col-sm-3">Email
+				</label>
+					<input class="col-sm-6" 
+					type="email"
+					 name="email"
+					 required
+					 minlength="5"
+					 pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
+					 [(ngModel)]="user.email"
+					 #email="ngModel"
+					 >
+					 <p class="col-sm-1" *ngIf="email.valid" style="color:green;">✔</p>
+			</div>
+			<div class="form-group row">
+				<label class="col-sm-3">Password
+				</label>
+					<input class="col-sm-6" 
+					type="password"
+					 name="password"
+					 required
+					 minlength="6"
+					 [(ngModel)]="user.password"
+					 #password="ngModel"
+					 >
+					 <p class="col-sm-1" *ngIf="password.valid" style="color:green;">✔</p>
+			</div>
+			<div class="form-group row">
+				<label class="col-sm-3">Confirm Password
+				</label>
+					<input class="col-sm-6" 
+					type="password"
+					 name="confirm"
+					  required 
+					  minlength="6"
+					  [(ngModel)]="pwconfirm"
+					  #confirm = "ngModel"
+					  >
+				 <p class="col-sm-1" *ngIf="confirm.valid" style="color:green;">✔</p>
+			</div>
+			<div class="form-group row">
+				<button class="btn btn-primary offset-sm-3">Register</button>
+			</div>
+		</form>
+	</div>
+	<div class="col">
+		<h4>Login</h4>
+		<form (submit)="login($event)">
+			<div class="form-group row">
+				<label class="col-sm-3">Email
+				</label>
+					<input class="col-sm-6" 
+					type="text"
+					 name="loginemail"
+					 required
+					 minlength="5"
+					 pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
+					 [(ngModel)]="loginuser.email"
+					 #loginemail="ngModel"
+					 >
+					 <p class="col-sm-1" *ngIf="loginemail.valid" style="color:green;">✔</p>
+			</div>
+			<div class="form-group row">
+				<label class="col-sm-3">Password
+				</label>
+					<input class="col-sm-6" 
+					type="password"
+					 name="loginpw"
+					 required
+					 minlength="6"
+					 [(ngModel)]="loginuser.password"
+					 #loginpw="ngModel"
+					 >
+					 <p class="col-sm-1" *ngIf="loginpw.valid" style="color:green;">✔</p>
+			</div>
+			<div class="form-group">
+				<button class="btn btn-primary offset-sm-3">Login</button>
+			</div>
+		</form>
+	</div>
+</div>
